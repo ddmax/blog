@@ -6,25 +6,19 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="ddMax">
-    <title>Python 学习笔记：字符串格式化的坑 - ddMax</title>
+    <title>Django REST framework 使用总结 - ddMax</title>
     <meta name="author" content="ddMax">
     
     
-    <meta name="description" content="在Python中，格式化字符串有2种方法
-1.使用%操作符12s = (&apos;Life is %s, use %s!&apos;) % (&apos;short&apos;, &apos;Python&apos;)# Output: Life is short, use Python!
-2.使用format方法12s = &apos;Life is &amp;#123;&amp;#125;, use &amp;#123;&amp;#125;!&apos;.format(&apos;short&apos;, &apos;Python">
+    <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Python 学习笔记：字符串格式化的坑">
-<meta property="og:url" content="http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/index.html">
+<meta property="og:title" content="Django REST framework 使用总结">
+<meta property="og:url" content="http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/index.html">
 <meta property="og:site_name" content="ddMax">
-<meta property="og:description" content="在Python中，格式化字符串有2种方法
-1.使用%操作符12s = (&apos;Life is %s, use %s!&apos;) % (&apos;short&apos;, &apos;Python&apos;)# Output: Life is short, use Python!
-2.使用format方法12s = &apos;Life is &amp;#123;&amp;#125;, use &amp;#123;&amp;#125;!&apos;.format(&apos;short&apos;, &apos;Python">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 学习笔记：字符串格式化的坑">
-<meta name="twitter:description" content="在Python中，格式化字符串有2种方法
-1.使用%操作符12s = (&apos;Life is %s, use %s!&apos;) % (&apos;short&apos;, &apos;Python&apos;)# Output: Life is short, use Python!
-2.使用format方法12s = &apos;Life is &amp;#123;&amp;#125;, use &amp;#123;&amp;#125;!&apos;.format(&apos;short&apos;, &apos;Python">
+<meta name="twitter:title" content="Django REST framework 使用总结">
+<meta name="twitter:description">
 
     
     
@@ -161,13 +155,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Python 学习笔记：字符串格式化的坑
+            Django REST framework 使用总结
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sat Sep 12 2015 16:06:35 GMT+0800">
+    <time itemprop="datePublished" content="Tue Sep 15 2015 15:52:52 GMT+0800">
 	
-		    12/09/2015
+		    15/09/2015
     	
     </time>
     
@@ -176,13 +170,7 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>在Python中，格式化字符串有2种方法</p>
-<h3 id="1-使用%操作符">1.使用%操作符</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = (<span class="string">'Life is %s, use %s!'</span>) % (<span class="string">'short'</span>, <span class="string">'Python'</span>)</span><br><span class="line"><span class="comment"># Output: Life is short, use Python!</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-使用format方法">2.使用format方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'Life is &#123;&#125;, use &#123;&#125;!'</span>.format(<span class="string">'short'</span>, <span class="string">'Python'</span>)</span><br><span class="line"><span class="comment"># Output: Life is short, use Python!</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意：</strong>在Python 3.1以上的版本中才支持忽略字段名{}来表示将被格式化的字段，Python 3.0中需要指定字段名，如’{0}{1}’.format(‘Python’, ‘3.0’)</p>
-</blockquote>
-
+            
             
                 
 
@@ -196,7 +184,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/15/Django-REST-framework-使用总结/"  data-tooltip="Django REST framework 使用总结">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -204,7 +192,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/31/启程！使用Hexo搭建你的博客/" data-tooltip="启程！使用Hexo搭建你的博客">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/12/Python-学习笔记：字符串格式化的坑/" data-tooltip="Python 学习笔记：字符串格式化的坑">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
                     <i class="fa fa-angle-right"></i>
@@ -219,17 +207,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -271,7 +259,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/15/Django-REST-framework-使用总结/"  data-tooltip="Django REST framework 使用总结">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -279,7 +267,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/31/启程！使用Hexo搭建你的博客/" data-tooltip="启程！使用Hexo搭建你的博客">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/12/Python-学习笔记：字符串格式化的坑/" data-tooltip="Python 学习笔记：字符串格式化的坑">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
                     <i class="fa fa-angle-right"></i>
@@ -294,17 +282,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -330,17 +318,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
