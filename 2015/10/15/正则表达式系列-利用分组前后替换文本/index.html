@@ -6,19 +6,19 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="ddMax">
-    <title>Django REST framework 使用总结 - ddMax</title>
+    <title>[正则表达式系列]利用分组前后替换文本 - ddMax</title>
     <meta name="author" content="ddMax">
     
     
-    <meta name="description">
+    <meta name="description" content="一次做百度地图SDK开发，需要处理大量坐标数据。不幸的是在百度地图API网站上生成的坐标和Android中坐标类LatLng的经纬度表示是反的，因此要手动将其调过来。查了很多资料后，使用正则表达式快速完成了替换。先看一下数据：1&amp;#10;">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Django REST framework 使用总结">
-<meta property="og:url" content="http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/index.html">
+<meta property="og:title" content="[正则表达式系列]利用分组前后替换文本">
+<meta property="og:url" content="http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/index.html">
 <meta property="og:site_name" content="ddMax">
-<meta property="og:description">
+<meta property="og:description" content="一次做百度地图SDK开发，需要处理大量坐标数据。不幸的是在百度地图API网站上生成的坐标和Android中坐标类LatLng的经纬度表示是反的，因此要手动将其调过来。查了很多资料后，使用正则表达式快速完成了替换。先看一下数据：1&amp;#10;">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Django REST framework 使用总结">
-<meta name="twitter:description">
+<meta name="twitter:title" content="[正则表达式系列]利用分组前后替换文本">
+<meta name="twitter:description" content="一次做百度地图SDK开发，需要处理大量坐标数据。不幸的是在百度地图API网站上生成的坐标和Android中坐标类LatLng的经纬度表示是反的，因此要手动将其调过来。查了很多资料后，使用正则表达式快速完成了替换。先看一下数据：1&amp;#10;">
 
     
     
@@ -155,13 +155,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Django REST framework 使用总结
+            [正则表达式系列]利用分组前后替换文本
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Tue Sep 15 2015 15:52:52 GMT+0800">
+    <time itemprop="datePublished" content="Thu Oct 15 2015 13:39:27 GMT+0800">
 	
-		    15/09/2015
+		    15/10/2015
     	
     </time>
     
@@ -170,7 +170,8 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            
+            <p>一次做百度地图SDK开发，需要处理大量坐标数据。不幸的是在百度地图API网站上生成的坐标和Android中坐标类LatLng的经纬度表示是反的，因此要手动将其调过来。查了很多资料后，使用正则表达式快速完成了替换。<br>先看一下数据：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
+
             
                 
 
@@ -184,7 +185,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/15/正则表达式系列-利用分组前后替换文本/"  data-tooltip="[正则表达式系列]利用分组前后替换文本">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/05/搭建ngrok服务总结/"  data-tooltip="搭建ngrok服务总结">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -192,7 +193,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/12/Python-学习笔记：字符串格式化的坑/" data-tooltip="Python 学习笔记：字符串格式化的坑">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/15/Django-REST-framework-使用总结/" data-tooltip="Django REST framework 使用总结">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
                     <i class="fa fa-angle-right"></i>
@@ -207,17 +208,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -259,7 +260,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/15/正则表达式系列-利用分组前后替换文本/"  data-tooltip="[正则表达式系列]利用分组前后替换文本">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/05/搭建ngrok服务总结/"  data-tooltip="搭建ngrok服务总结">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">ANTERIOR</span>
@@ -267,7 +268,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/12/Python-学习笔记：字符串格式化的坑/" data-tooltip="Python 学习笔记：字符串格式化的坑">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/09/15/Django-REST-framework-使用总结/" data-tooltip="Django REST framework 使用总结">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">PRÓXIMO</span>
                     <i class="fa fa-angle-right"></i>
@@ -282,17 +283,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -318,17 +319,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/09/15/Django-REST-framework-使用总结/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/10/15/正则表达式系列-利用分组前后替换文本/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>
