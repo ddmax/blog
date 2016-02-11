@@ -10,6 +10,7 @@
     <meta name="author" content="ddMax">
     
     
+    
     <meta name="description">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="ddMax">
@@ -22,27 +23,46 @@
 
     
     
+        
+    
     
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style-ejlztp1tasruqfvoz6xmgqng0anzae8ox7cqjj5yibieqgcmhe9fwxfae6zj.min.css" type="text/css">
 
     <!--STYLES END-->
+    
     
 </head>
 
     <body>
         <div id="blog">
-            <header id="header" data-behavior="2">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">ddMax</a>
     </h1>
     
+        
+            <a  class="header-right-picture "
+                href="/#about">
+        
+        
+        </a>
+    
 </header>
-            <nav id="sidebar" data-behavior="2">
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
     
     
         <ul class="sidebar-buttons">
@@ -55,7 +75,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">Início</span>
+                    <span class="sidebar-button-desc">首頁</span>
                 </a>
         </li>
         
@@ -67,7 +87,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">Categorias</span>
+                    <span class="sidebar-button-desc">分類</span>
                 </a>
         </li>
         
@@ -79,7 +99,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">Tags</span>
+                    <span class="sidebar-button-desc">標籤</span>
                 </a>
         </li>
         
@@ -91,7 +111,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">Arquivo</span>
+                    <span class="sidebar-button-desc">所有文章</span>
                 </a>
         </li>
         
@@ -103,7 +123,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">Pesquisar</span>
+                    <span class="sidebar-button-desc">搜尋</span>
                 </a>
         </li>
         
@@ -115,7 +135,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">Sobre</span>
+                    <span class="sidebar-button-desc">關於</span>
                 </a>
         </li>
         
@@ -135,7 +155,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">RSS</span>
+                    <span class="sidebar-button-desc">Atom</span>
                 </a>
         </li>
         
@@ -150,266 +170,327 @@
                         ">
                 
     
+
 <section class="postShorten-group main-content-wrap">
     
-        
-        
-                <article class="postShorten" itemscope itemType="http://schema.org/BlogPosting">
-        
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/11/05/搭建ngrok服务总结/">搭建ngrok服务总结</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/11/05/搭建ngrok服务总结/">
+                            搭建ngrok服务总结
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
     <time itemprop="datePublished" content="Thu Nov 05 2015 19:33:37 GMT+0800">
 	
-		    05/11/2015
+		    Nov 05, 2015
     	
     </time>
     
 </div>
-                </div>
-                <div class="postShorten-excerpt" itemprop="articleBody">
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>实现内网穿透的办法还是有很多的，我知道的有两种方法：</p>
+<ol>
+<li>DDNS动态域名解析+DMZ端口映射</li>
+<li>反向代理/隧道</li>
+</ol>
+<p>其中第一种方法需要你有公网IP，而工信部在2013年6月15日已经不允许个人用户使用80/8080端口，也就是你不可能拿到公网IP了。<br>反向代理服务有：</p>
+<ul>
+<li>ngrok</li>
+<li>localtunnel</li>
+<li>pagekite</li>
+</ul>
+<p>ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。</p>
+<hr>
+<h2 id="安装必要的组件">安装必要的组件</h2><p>我的是Debian 7 64位，运行：</p>
+<blockquote>
+<p>sudo apt-get install build-essential mercurial git</p>
+</blockquote>
+<h2 id="克隆ngrok源码">克隆ngrok源码</h2><blockquote>
+<p>git clone <a href="https://github.com/inconshreveable/ngrok.git" target="_blank" rel="external">https://github.com/inconshreveable/ngrok.git</a></p>
+</blockquote>
+<h2 id="安装Go语言环境">安装Go语言环境</h2><p>直接下载Linux二进制版本：</p>
+<blockquote>
+<p><a href="https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz" target="_blank" rel="external">https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz</a></p>
+</blockquote>
+<p><strong>注意：千万别下载1.5版本，不能编译ngrok目前的版本！坑了我好久！</strong></p>
+<h2 id="解压，设置环境变量">解压，设置环境变量</h2><p>&gt;<br>tar zxf go1.4.2.linux-amd64.tar.gz<br>vim ~/.bashrc </p>
+<p>加入如下几行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=<span class="variable">$HOME</span>/go</span><br><span class="line"><span class="built_in">export</span> GOHOME=<span class="variable">$HOME</span>/ngrok</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin:<span class="variable">$GOPATH</span>/bin"</span></span><br></pre></td></tr></table></figure>
+<p>按:wq保存退出，然后</p>
+<blockquote>
+<p>source ~/.bashrc</p>
+</blockquote>
+<p>导入环境变量</p>
+<h2 id="生成证书">生成证书</h2><blockquote>
+<p>cd ngrok  </p>
+<p>NGROK_DOMAIN=”ddmax.gq”  </p>
+<p>openssl genrsa -out base.key 2048<br>openssl req -new -x509 -nodes -key base.key -days 10000 -subj “/CN=$NGROK_DOMAIN” -out base.pem<br>openssl genrsa -out server.key 2048<br>openssl req -new -key server.key -subj “/CN=$NGROK_DOMAIN” -out server.csr<br>openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt  </p>
+<p>cp base.pem assets/client/tls/ngrokroot.crt</p>
+</blockquote>
+<h2 id="开始编译">开始编译</h2><blockquote>
+<p>sudo make release-server release-client</p>
+</blockquote>
+<p>编译成功的话在bin目录下有ngrokd和ngrok，分别是服务端和客户端。</p>
+<p>好了，关于如何使用，可以查看参考资料中的1。</p>
+<h3 id="参考资料：">参考资料：</h3><ol>
+<li><a href="https://imququ.com/post/self-hosted-ngrokd.html" target="_blank" rel="external">搭建 ngrok 服务实现内网穿透</a>  </li>
+<li><a href="http://www.ekan001.com/articles/38" target="_blank" rel="external">自行编译ngrok服务端客户端，替代花生壳，跨平台</a>  </li>
+<li><a href="http://ju.outofmemory.cn/entry/123641" target="_blank" rel="external">搭建自己的ngrok服务</a>  </li>
+</ol>
+
+                    
+                        
+
+                    
                     
                         <p>
-                            实现内网穿透的办法还是有很多的，我知道的有两种方法：
-
-DDNS动态域名解析+DMZ端口映射
-反向代理/隧道
-
-其中第一种方法需要你有公网IP，而工信部在2013年6月15日已经不允许个人用户使用80/8080端口，也就是你不可能拿到公网IP了。反向代理服务有：
-
-ngrok
-localtunnel
-pagekite
-
-ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
-
-安装必要的组件<br>
-                    
-                    
-                        
-                            <a href="/2015/11/05/搭建ngrok服务总结/" class="postShorten-excerpt_link link ">Continuar leitura</a>
-                            
-                        
-                    
-                    
+                            <a href="/2015/11/05/搭建ngrok服务总结/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
                         </p>
                     
                 </div>
-            </div>
             
-        </article>
+        </div>
+        
+    </article>
     
-        
-        
-                <article class="postShorten" itemscope itemType="http://schema.org/BlogPosting">
-        
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/10/15/正则表达式系列-利用分组前后替换文本/">[正则表达式系列]利用分组前后替换文本</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/10/15/正则表达式系列-利用分组前后替换文本/">
+                            [正则表达式系列]利用分组前后替换文本
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
     <time itemprop="datePublished" content="Thu Oct 15 2015 13:39:27 GMT+0800">
 	
-		    15/10/2015
+		    Oct 15, 2015
     	
     </time>
     
 </div>
-                </div>
-                <div class="postShorten-excerpt" itemprop="articleBody">
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>一次做百度地图SDK开发，需要处理大量坐标数据。不幸的是在百度地图API网站上生成的坐标和Android中坐标类LatLng的经纬度表示是反的，因此要手动将其调过来。查了很多资料后，使用正则表达式快速完成了替换。<br>先看一下数据：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
+
+                    
+                        
+
+                    
                     
                         <p>
-                            一次做百度地图SDK开发，需要处理大量坐标数据。不幸的是在百度地图API网站上生成的坐标和Android中坐标类LatLng的经纬度表示是反的，因此要手动将其调过来。查了很多资料后，使用正则表达式快速完成了替换。先看一下数据：1&#10;
-<br>
-                    
-                    
-                        
-                            <a href="/2015/10/15/正则表达式系列-利用分组前后替换文本/" class="postShorten-excerpt_link link ">Continuar leitura</a>
-                            
-                        
-                    
-                    
+                            <a href="/2015/10/15/正则表达式系列-利用分组前后替换文本/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
                         </p>
                     
                 </div>
-            </div>
             
-        </article>
+        </div>
+        
+    </article>
     
-        
-        
-                <article class="postShorten" itemscope itemType="http://schema.org/BlogPosting">
-        
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/09/15/Django-REST-framework-使用总结/">Django REST framework 使用总结</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/09/15/Django-REST-framework-使用总结/">
+                            Django REST framework 使用总结
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
     <time itemprop="datePublished" content="Tue Sep 15 2015 15:52:52 GMT+0800">
 	
-		    15/09/2015
+		    Sep 15, 2015
     	
     </time>
     
 </div>
-                </div>
-                <div class="postShorten-excerpt" itemprop="articleBody">
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    
+                    
+                        
+
+                    
                     
                         <p>
-                            <br>
-                    
-                    
-                        
-                            <a href="/2015/09/15/Django-REST-framework-使用总结/" class="postShorten-excerpt_link link ">Continuar leitura</a>
-                            
-                        
-                    
-                    
+                            <a href="/2015/09/15/Django-REST-framework-使用总结/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
                         </p>
                     
                 </div>
-            </div>
             
-        </article>
+        </div>
+        
+    </article>
     
-        
-        
-                <article class="postShorten" itemscope itemType="http://schema.org/BlogPosting">
-        
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/09/12/Python-学习笔记：字符串格式化的坑/">Python 学习笔记：字符串格式化的坑</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/09/12/Python-学习笔记：字符串格式化的坑/">
+                            Python 学习笔记：字符串格式化的坑
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
     <time itemprop="datePublished" content="Sat Sep 12 2015 16:06:35 GMT+0800">
 	
-		    12/09/2015
+		    Sep 12, 2015
     	
     </time>
     
 </div>
-                </div>
-                <div class="postShorten-excerpt" itemprop="articleBody">
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>在Python中，格式化字符串有2种方法</p>
+<h3 id="1-使用%操作符">1.使用%操作符</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = (<span class="string">'Life is %s, use %s!'</span>) % (<span class="string">'short'</span>, <span class="string">'Python'</span>)</span><br><span class="line"><span class="comment"># Output: Life is short, use Python!</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-使用format方法">2.使用format方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'Life is &#123;&#125;, use &#123;&#125;!'</span>.format(<span class="string">'short'</span>, <span class="string">'Python'</span>)</span><br><span class="line"><span class="comment"># Output: Life is short, use Python!</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong>在Python 3.1以上的版本中才支持忽略字段名{}来表示将被格式化的字段，Python 3.0中需要指定字段名，如’{0}{1}’.format(‘Python’, ‘3.0’)</p>
+</blockquote>
+
+                    
+                        
+
+                    
                     
                         <p>
-                            在Python中，格式化字符串有2种方法
-1.使用%操作符12s = ('Life is %s, use %s!') % ('short', 'Python')# Output: Life is short, use Python!
-2.使用format方法12s = 'Life is &#123;&#125;, use &#123;&#125;!'.format('short', 'Python<br>
-                    
-                    
-                        
-                            <a href="/2015/09/12/Python-学习笔记：字符串格式化的坑/" class="postShorten-excerpt_link link ">Continuar leitura</a>
-                            
-                        
-                    
-                    
+                            <a href="/2015/09/12/Python-学习笔记：字符串格式化的坑/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
                         </p>
                     
                 </div>
-            </div>
             
-        </article>
+        </div>
+        
+    </article>
     
-        
-        
-                <article class="postShorten" itemscope itemType="http://schema.org/BlogPosting">
-        
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/08/31/启程！使用Hexo搭建你的博客/">启程！使用Hexo搭建你的博客</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/08/31/启程！使用Hexo搭建你的博客/">
+                            启程！使用Hexo搭建你的博客
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
     <time itemprop="datePublished" content="Mon Aug 31 2015 22:40:36 GMT+0800">
 	
-		    31/08/2015
+		    Aug 31, 2015
     	
     </time>
     
 </div>
-                </div>
-                <div class="postShorten-excerpt" itemprop="articleBody">
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>主要参考了Berry博客的文章：<a href="http://blog.berry10086.com/Tech/deploy-hexo-to-vps/" target="_blank" rel="external">在VPS上部署hexo</a>，但在实践的过程中遇到了两处问题，特作记录以便参考</p>
+<h2 id="1_-ssh文件夹和authorized_keys文件权限问题">1 .ssh文件夹和authorized_keys文件权限问题</h2><p>具体表现为</p>
+
+                    
+                        
+
+                    
                     
                         <p>
-                            主要参考了Berry博客的文章：在VPS上部署hexo，但在实践的过程中遇到了两处问题，特作记录以便参考
-1 .ssh文件夹和authorized_keys文件权限问题具体表现为
-<br>
-                    
-                    
-                        
-                            <a href="/2015/08/31/启程！使用Hexo搭建你的博客/" class="postShorten-excerpt_link link ">Continuar leitura</a>
-                            
-                        
-                    
-                    
+                            <a href="/2015/08/31/启程！使用Hexo搭建你的博客/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
                         </p>
                     
                 </div>
-            </div>
             
-        </article>
+        </div>
+        
+    </article>
     
-        
-        
-                <article class="postShorten" itemscope itemType="http://schema.org/BlogPosting">
-        
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2015/03/02/hello-world/">Hello World</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/03/02/hello-world/">
+                            Hello World
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
     <time itemprop="datePublished" content="Mon Mar 02 2015 13:22:22 GMT+0800">
 	
-		    02/03/2015
+		    Mar 02, 2015
     	
     </time>
     
 </div>
-                </div>
-                <div class="postShorten-excerpt" itemprop="articleBody">
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+                    
+                        
+
+                    
                     
                         <p>
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick<br>
-                    
-                    
-                        
-                            <a href="/2015/03/02/hello-world/" class="postShorten-excerpt_link link ">Continuar leitura</a>
-                            
-                        
-                    
-                    
+                            <a href="/2015/03/02/hello-world/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
                         </p>
                     
                 </div>
-            </div>
             
-        </article>
+        </div>
+        
+    </article>
     
     <div class="pagination-bar">
     <ul class="pagination">
         
         
-        <li class="pagination-number">página 1 de 1</li>
+        <li class="pagination-number">第 1 頁 共 1 頁</li>
     </ul>
 </div>
 
@@ -419,14 +500,17 @@ Quick<br>
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2015 ddMax. All Rights Reserved.
+        Copyrights &copy; 2016 ddMax. All Rights Reserved.
     </span>
 </footer>
 
             </div>
             
         </div>
-        <div id="about">
+        
+
+
+<div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-remove"></i>
@@ -449,10 +533,11 @@ Quick<br>
     </div>
 </div>
 
-        <div id="cover" style="background-image:url('http://res.cloudinary.com/tranquilpeak-hexo-theme/image/upload/v1438975482/v1.3.0-cover.jpg');"></div>
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<script src="/assets/js/scrip-gfmrkxcl0qohe3cfdgxhzvc0yrceqta8i4iix0txvn8q4o2adlqd5n0jmkvt.min.js" type="text/javascript"></script>
 
 <!--SCRIPTS END-->
 
