@@ -6,59 +6,20 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="ddMax">
-    <title>搭建ngrok服务总结 - ddMax</title>
+    <title>在Docker中部署Hexo博客 - ddMax</title>
     <meta name="author" content="ddMax">
     
     
     
-    <meta name="description" content="实现内网穿透的办法还是有很多的，我知道的有两种方法：
-
-DDNS动态域名解析+DMZ端口映射
-反向代理/隧道
-
-其中第一种方法需要你有公网IP，而工信部在2013年6月15日已经不允许个人用户使用80/8080端口，也就是你不可能拿到公网IP了。反向代理服务有：
-
-ngrok
-localtunnel
-pagekite
-
-ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
-
-安装必要的组件">
+    <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="搭建ngrok服务总结">
-<meta property="og:url" content="http://ddmax.gq/2015/11/05/搭建ngrok服务总结/index.html">
+<meta property="og:title" content="在Docker中部署Hexo博客">
+<meta property="og:url" content="http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/index.html">
 <meta property="og:site_name" content="ddMax">
-<meta property="og:description" content="实现内网穿透的办法还是有很多的，我知道的有两种方法：
-
-DDNS动态域名解析+DMZ端口映射
-反向代理/隧道
-
-其中第一种方法需要你有公网IP，而工信部在2013年6月15日已经不允许个人用户使用80/8080端口，也就是你不可能拿到公网IP了。反向代理服务有：
-
-ngrok
-localtunnel
-pagekite
-
-ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
-
-安装必要的组件">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建ngrok服务总结">
-<meta name="twitter:description" content="实现内网穿透的办法还是有很多的，我知道的有两种方法：
-
-DDNS动态域名解析+DMZ端口映射
-反向代理/隧道
-
-其中第一种方法需要你有公网IP，而工信部在2013年6月15日已经不允许个人用户使用80/8080端口，也就是你不可能拿到公网IP了。反向代理服务有：
-
-ngrok
-localtunnel
-pagekite
-
-ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
-
-安装必要的组件">
+<meta name="twitter:title" content="在Docker中部署Hexo博客">
+<meta name="twitter:description">
 
     
     
@@ -214,13 +175,13 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            搭建ngrok服务总结
+            在Docker中部署Hexo博客
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Thu Nov 05 2015 19:33:37 GMT+0800">
+    <time itemprop="datePublished" content="Thu Feb 11 2016 23:56:02 GMT+0800">
 	
-		    Nov 05, 2015
+		    Feb 11, 2016
     	
     </time>
     
@@ -229,56 +190,7 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>实现内网穿透的办法还是有很多的，我知道的有两种方法：</p>
-<ol>
-<li>DDNS动态域名解析+DMZ端口映射</li>
-<li>反向代理/隧道</li>
-</ol>
-<p>其中第一种方法需要你有公网IP，而工信部在2013年6月15日已经不允许个人用户使用80/8080端口，也就是你不可能拿到公网IP了。<br>反向代理服务有：</p>
-<ul>
-<li>ngrok</li>
-<li>localtunnel</li>
-<li>pagekite</li>
-</ul>
-<p>ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。</p>
-<hr>
-<h2 id="安装必要的组件">安装必要的组件</h2><p>我的是Debian 7 64位，运行：</p>
-<blockquote>
-<p>sudo apt-get install build-essential mercurial git</p>
-</blockquote>
-<h2 id="克隆ngrok源码">克隆ngrok源码</h2><blockquote>
-<p>git clone <a href="https://github.com/inconshreveable/ngrok.git" target="_blank" rel="external">https://github.com/inconshreveable/ngrok.git</a></p>
-</blockquote>
-<h2 id="安装Go语言环境">安装Go语言环境</h2><p>直接下载Linux二进制版本：</p>
-<blockquote>
-<p><a href="https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz" target="_blank" rel="external">https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz</a></p>
-</blockquote>
-<p><strong>注意：千万别下载1.5版本，不能编译ngrok目前的版本！坑了我好久！</strong></p>
-<h2 id="解压，设置环境变量">解压，设置环境变量</h2><p>&gt;<br>tar zxf go1.4.2.linux-amd64.tar.gz<br>vim ~/.bashrc </p>
-<p>加入如下几行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=<span class="variable">$HOME</span>/go</span><br><span class="line"><span class="built_in">export</span> GOHOME=<span class="variable">$HOME</span>/ngrok</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin:<span class="variable">$GOPATH</span>/bin"</span></span><br></pre></td></tr></table></figure>
-<p>按:wq保存退出，然后</p>
-<blockquote>
-<p>source ~/.bashrc</p>
-</blockquote>
-<p>导入环境变量</p>
-<h2 id="生成证书">生成证书</h2><blockquote>
-<p>cd ngrok  </p>
-<p>NGROK_DOMAIN=”ddmax.gq”  </p>
-<p>openssl genrsa -out base.key 2048<br>openssl req -new -x509 -nodes -key base.key -days 10000 -subj “/CN=$NGROK_DOMAIN” -out base.pem<br>openssl genrsa -out server.key 2048<br>openssl req -new -key server.key -subj “/CN=$NGROK_DOMAIN” -out server.csr<br>openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt  </p>
-<p>cp base.pem assets/client/tls/ngrokroot.crt</p>
-</blockquote>
-<h2 id="开始编译">开始编译</h2><blockquote>
-<p>sudo make release-server release-client</p>
-</blockquote>
-<p>编译成功的话在bin目录下有ngrokd和ngrok，分别是服务端和客户端。</p>
-<p>好了，关于如何使用，可以查看参考资料中的1。</p>
-<h3 id="参考资料：">参考资料：</h3><ol>
-<li><a href="https://imququ.com/post/self-hosted-ngrokd.html" target="_blank" rel="external">搭建 ngrok 服务实现内网穿透</a>  </li>
-<li><a href="http://www.ekan001.com/articles/38" target="_blank" rel="external">自行编译ngrok服务端客户端，替代花生壳，跨平台</a>  </li>
-<li><a href="http://ju.outofmemory.cn/entry/123641" target="_blank" rel="external">搭建自己的ngrok服务</a>  </li>
-</ol>
-
+            
             
                 
 
@@ -292,7 +204,7 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/11/在Docker中部署Hexo博客/"  data-tooltip="在Docker中部署Hexo博客">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -300,7 +212,7 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/15/正则表达式系列-利用分组前后替换文本/" data-tooltip="[正则表达式系列]利用分组前后替换文本">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/05/搭建ngrok服务总结/" data-tooltip="搭建ngrok服务总结">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -315,17 +227,17 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -363,7 +275,7 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/11/在Docker中部署Hexo博客/"  data-tooltip="在Docker中部署Hexo博客">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -371,7 +283,7 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/10/15/正则表达式系列-利用分组前后替换文本/" data-tooltip="[正则表达式系列]利用分组前后替换文本">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/05/搭建ngrok服务总结/" data-tooltip="搭建ngrok服务总结">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -386,17 +298,17 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -416,17 +328,17 @@ ngrok使用的人最多，不过已经被封了，所以得自己搭建服务。
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2015/11/05/搭建ngrok服务总结/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://ddmax.gq/2016/02/11/在Docker中部署Hexo博客/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
